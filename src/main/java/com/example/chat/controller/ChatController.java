@@ -17,4 +17,11 @@ public class ChatController {
     {
         return chatMessage;
     }
+
+    public ChatMessage(@Playload ChatMessage chatMessage, SimpleMessageHeaderAcessor headerAcessor) 
+    {   
+        // Adiciona o username na sessão do websocket
+        headerAcessor.getSessionAttributes().put("username", chatMessage.getSender());
+        return chatMessage;
+    }
 }
